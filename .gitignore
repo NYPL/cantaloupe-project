@@ -26,3 +26,7 @@ nbactions.xml
 
 # Auto-generated content
 /target
+
+# Vim swapfiles
+*.swo
+*.swp
