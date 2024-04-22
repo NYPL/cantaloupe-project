@@ -14,6 +14,7 @@
 
 * v5.0.5 is built using a Java 11 runtime. To install this locally, use `brew install openjdk@11`
 * Once Java 11 is installed, you'll want to set it as the default. Find the installation directory with `brew --prefix openjdk@11`
+* You may need to symlink the new installation with `sudo ln -sfn <path_to_installation_directory>/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk`
 * Open your shell config file (for a bash shell, this'll be `~/.bashrc` or `~/.bash_profile`, for zshell, it's `~/.zshrc`)
 * Add the following: `export JAVA_HOME=<path_to_installation_directory>/openjdk@11` (for me, it was `export JAVA_HOME=/opt/homebrew/opt/openjdk@11`
 * Also add `export PATH=$JAVA_HOME/bin:$PATH`
@@ -24,6 +25,7 @@ openjdk version "11.0.23" 2024-04-16
 OpenJDK Runtime Environment Homebrew (build 11.0.23+0)
 OpenJDK 64-Bit Server VM Homebrew (build 11.0.23+0, mixed mode)
 ```
+* Install the Maven build management tool with `brew install mvn` and then make sure the system recognizes it with `which mvn`
 * `cd` into `cantaloupe-project/cantaloupe` and try to build it with `mvn clean package -DskipTests`. If there are no bugs in the code, it should build successfully. The output files should be in `/target`.
 * Copy the newly built .jar file out of `/target` and into the root of the NYPL/cantaloupe.git project. Make sure it is named `cantaloupe-5.0.5.jar`.
 * The next time you build the NYPL cantaloupe project with `docker-compose build`, the new server code will become effective.
